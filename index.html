@@ -41,7 +41,6 @@
             text-align: center;
         }
 
-        /* Profile Photo Styling */
         .profile-photo {
             width: 180px;
             height: 180px;
@@ -101,7 +100,6 @@
         .link-scholar { color: #4285f4; }
         .link-orcid { color: #A6CE39; }
 
-        /* Supervisor Links */
         .supervisor-link {
             color: #2c3e50;
             text-decoration: none;
@@ -114,7 +112,6 @@
             border-bottom: 1px solid #3498db;
         }
 
-        /* Headings */
         h2.section-title {
             color: #2c3e50;
             margin-bottom: 20px;
@@ -128,7 +125,6 @@
             margin-bottom: 10px;
         }
 
-        /* Items */
         .item {
             margin-bottom: 25px;
         }
@@ -152,13 +148,22 @@
             color: #333;
         }
 
-        /* Collaborators Styling */
+        /* FIXED COLLABORATORS GRID FOR HORIZONTAL ALIGNMENT */
+        .collaborators-grid {
+            display: flex;
+            flex-direction: row; /* Force horizontal row */
+            flex-wrap: wrap;     /* Allow wrap only on small screens */
+            gap: 50px;           /* Space between collaborators */
+            margin-top: 30px;
+            justify-content: flex-start; /* Align to the left side */
+        }
+
         .collaborator-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 250px;
-            margin-top: 20px;
+            width: 180px;        /* Fixed width for uniform look */
+            text-align: center;
         }
 
         .collaborator-photo {
@@ -166,19 +171,24 @@
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .collaborator-name {
             font-weight: bold;
             color: #2c3e50;
             font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .collaborator-affiliation {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            display: block;
+            line-height: 1.2;
         }
 
         footer {
@@ -195,7 +205,6 @@
     <header>
         <div class="container">
             <img src="profile.png" alt="Dr. Gowtham Reddy Nimmalapalli" class="profile-photo">
-            
             <h1>Dr. Gowtham Reddy Nimmalapalli</h1>
             <h2>Postdoctoral Fellow | Indian Institute of Technology Gandhinagar</h2>
             
@@ -238,12 +247,10 @@
                 <p>Hybrid BCI for Effective Decision Communication</p>
                 <p>Principal Investigator: <a href="https://scholar.google.co.in/citations?user=5xxepFkAAAAJ&hl=en" target="_blank" class="supervisor-link">Dr. Yogesh Kumar Meena</a></p>
             </div>
-
             <div class="item">
                 <h3>Software Engineer II</h3>
                 <p><strong>Terralogic Software Solutions Pvt. Ltd., Bangalore</strong></p>
             </div>
-
             <div class="item">
                 <h3>Deep Learning Engineer</h3>
                 <p><strong>Innoactive Intelligence LLP, Bangalore</strong></p>
@@ -259,12 +266,10 @@
                 <p>Thesis: An Integrated Framework for Predicting Epilepsy using EEG Signals</p>
                 <p>Supervisor: <a href="https://scholar.google.com/citations?user=tD8YpZUAAAAJ&hl=en" target="_blank" class="supervisor-link">Dr. Debashree Guha Adhya</a>; Co-supervisor: <a href="https://scholar.google.com/citations?user=k0MoQ9UAAAAJ&hl=en" target="_blank" class="supervisor-link">Prof. Manjunatha Mahadevappa</a></p>
             </div>
-
             <div class="item">
                 <h3>M. Tech. in Signal Processing</h3>
                 <p><strong>University of Calicut</strong></p>
             </div>
-
             <div class="item">
                 <h3>B. Tech. in Electronics and Communication</h3>
                 <p><strong>JNTU Anantapur</strong></p>
@@ -310,16 +315,21 @@
 
         <section style="border-bottom: none;">
             <h2 class="section-title">Collaborators</h2>
-            <div class="collaborator-container">
-                <img src="Aneek.jpg" alt="Dr. Aneek Adhya" class="collaborator-photo">
-                <span class="collaborator-name">Dr. Aneek Adhya</span>
-                <span class="collaborator-affiliation">IIT Kharagpur</span>
-            </div>
-            <div class="collaborator-container">
+            <div class="collaborators-grid">
+                <div class="collaborator-container">
+                    <img src="aneek.jpg" alt="Dr. Aneek Adhya" class="collaborator-photo">
+                    <span class="collaborator-name">Dr. Aneek Adhya</span>
+                    <span class="collaborator-affiliation">IIT Kharagpur</span>
+                </div>
+                
+                <div class="collaborator-container">
                     <img src="debjani.jpg" alt="Debjani Chakraborty" class="collaborator-photo">
                     <span class="collaborator-name">Debjani Chakraborty</span>
                     <span class="collaborator-affiliation">IIT Kharagpur</span>
                 </div>
+
+                
+            </div>
         </section>
     </div>
 
@@ -329,5 +339,3 @@
 
 </body>
 </html>
-
-
