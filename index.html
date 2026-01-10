@@ -303,6 +303,42 @@
             filter: grayscale(0%);
             opacity: 1;
         }
+
+        /* Gallery Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crops image to fill the box without stretching */
+    display: block;
+}
+
+.gallery-info {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
     </style>
 </head>
 <body>
@@ -512,6 +548,37 @@
         </div>
     </div>
 
+     <div id="pictures" class="tab-content">
+    <div class="container">
+        <section style="border-bottom: none;">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-card">
+                    <img src="event1.jpg" alt="Lab Event">
+                    <div class="gallery-info">IEEE EMBS Conference 2025</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="event2.jpg" alt="Lab Seminar">
+                    <div class="gallery-info">Weekly Lab Seminar</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="group.jpg" alt="Group Photo">
+                    <div class="gallery-info">Lab Group Photo - SMST</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="field_visit.jpg" alt="Field Visit">
+                    <div class="gallery-info">Clinical Site Visit</div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Debashree Guha</p>
@@ -536,6 +603,7 @@
 
 </body>
 </html>
+
 
 
 
