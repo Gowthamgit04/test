@@ -279,6 +279,30 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* Funding Agencies Grid */
+        .funding-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .funding-logo {
+            max-width: 150px;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .funding-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -379,7 +403,7 @@
             
             <section>
                 <h2 class="section-title">Professional Activities</h2>
-                <p><strong>Reviewer:</strong> Reviewer of IEEE Transactions on fuzzy Systems, Information Sciences, Fuzzy Sets and Systems, Applied Soft Computing,
+                <p><strong>Reviewer:</strong>IEEE Transactions on fuzzy Systems, Information Sciences, Fuzzy Sets and Systems, Applied Soft Computing,
 Applied Mathematical Modelling, Kybernatica, International Journal of Machine Learning and Cybernetics, Advances in Fuzzy
 Systems, Neural Network and Applications, Opsearch, International Journal of operational Research etc.</p>
             </section>
@@ -441,6 +465,28 @@ Systems, Neural Network and Applications, Opsearch, International Journal of ope
             </section> -->
         </div>
     </div>
+
+    <section style="border-bottom: none;">
+            <h2 class="section-title">Funding Agencies</h2>
+            <div class="funding-grid">
+                <div class="funding-item">
+                    <img src="anrf_logo.png" alt="ANRF Logo" class="funding-logo">
+                    <p style="font-size: 0.8rem; text-align: center; margin-top: 5px;">ANRF</p>
+                </div>
+                <div class="funding-item">
+                    <img src="kgp_logo.png" alt="IIT Kharagpur Logo" class="funding-logo">
+                    <p style="font-size: 0.8rem; text-align: center; margin-top: 5px;">IIT Kharagpur</p>
+                </div>
+                <div class="funding-item">
+                    <img src="icmr_logo.png" alt="ICMR Logo" class="funding-logo">
+                    <p style="font-size: 0.8rem; text-align: center; margin-top: 5px;">ICMR</p>
+                </div>
+                <div class="funding-item">
+                    <img src="nus_logo.png" alt="NUS Logo" class="funding-logo">
+                    <p style="font-size: 0.8rem; text-align: center; margin-top: 5px;">NUS Singapore</p>
+                </div>
+            </div>
+        </section>
 
     <div id="team" class="tab-content">
         <div class="container">
@@ -604,6 +650,7 @@ Systems, Neural Network and Applications, Opsearch, International Journal of ope
 
 </body>
 </html>
+
 
 
 
