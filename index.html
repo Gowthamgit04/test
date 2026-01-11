@@ -396,6 +396,72 @@
             font-size: 0.85rem;
         }
     }
+
+        .navbar {
+        background-color: #34495e;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .tab-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    /* Style for the Lab Name Link - Underline Removed */
+    .nav-brand-link {
+        text-decoration: none !important; /* Forces removal of underline */
+        color: #ffffff !important;        /* Forces bright white text */
+        transition: 0.3s;
+    }
+
+    .nav-brand-link:hover {
+        color: #3498db !important;        /* Changes color slightly on hover instead of underline */
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 15px 0;
+    }
+
+    .nav-buttons {
+        display: flex;
+    }
+
+    .tab-button {
+        background: none;
+        border: none;
+        color: white;
+        padding: 20px 15px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    /* Mobile Responsive Fix */
+    @media (max-width: 850px) {
+        .tab-container {
+            flex-direction: column;
+            padding: 10px;
+        }
+        .nav-brand {
+            padding: 5px 0;
+            margin-bottom: 5px;
+        }
+    }
 <!-- </style> -->
         
     </style>
@@ -709,6 +775,7 @@
 
 </body>
 </html>
+
 
 
 
