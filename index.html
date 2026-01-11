@@ -79,6 +79,624 @@
 
         .header-flex {
             display: flex;
+            align-items: flex-start; /* Changed from center to flex-start to align text with top of photo */
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .header-right {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            color: #3498db;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #3498db;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            font-size: 2.2rem;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            margin: 0 15px;
+            transition: transform 0.3s, opacity 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            opacity: 0.8;
+        }
+
+        .link-linkedin { color: #0077b5; }
+        .link-scholar { color: #4285f4; }
+        .link-orcid { color: #A6CE39; }
+
+        .research-text-header {
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #ecf0f1;
+            line-height: 1.8;
+        }
+
+        .supervisor-link {
+            color: #2c3e50;
+            text-decoration: none;
+            border-bottom: 1px dashed #3498db;
+            font-weight: 500;
+        }
+        
+        .supervisor-link:hover {
+            color: #3498db;
+            border-bottom: 1px solid #3498db;
+        }
+
+        h2.section-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            margin-bottom: 25px;
+        }
+
+        .date {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tags span {
+            display: inline-block;
+            background: #f1f1f1;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .collaborators-grid {
+            display: flex;
+            flex-direction: row; 
+            flex-wrap: wrap;      
+            gap: 50px;            
+            margin-top: 30px;
+            justify-content: flex-start; 
+        }
+
+        .collaborator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px;        
+            text-align: center;
+        }
+
+        .collaborator-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .collaborator-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .collaborator-affiliation {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            line-height: 1.2;
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-right {
+                text-align: justify;
+            }
+            .tab-button {
+                padding: 10px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Funding Agencies Grid */
+        .funding-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .funding-logo {
+            max-width: 150px;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .funding-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Gallery Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover; /* Crops image to fill the box without stretching */
+            display: block;
+        }
+
+        .gallery-info {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'home')">Home</button>
+            <button class="tab-button" onclick="openTab(event, 'team')">Team</button>
+            <button class="tab-button" onclick="openTab(event, 'publications')">Publications</button>
+            <button class="tab-button" onclick="openTab(event, 'events')">Events</button>
+            <button class="tab-button" onclick="openTab(event, 'vacancies')">Vacancies</button>
+            <button class="tab-button" onclick="openTab(event, 'pictures')">Pictures</button>
+        </div>
+    </nav>
+
+    <div id="home" class="tab-content active">
+        <header>
+            <div class="container header-flex">
+                <div class="header-left">
+                    <img src="Debashree.jpg" alt="Dr. Debashree Guha" class="profile-photo">
+                    <h1>Dr. Debashree Guha Adhya</h1>
+                    <h2>Associate Professor</h2>
+                    <h2>School of Medical Science and Technology</h2>
+                    <h2>IIT Kharagpur</h2>
+                    
+                    <div class="contact-info">
+                        <a href="mailto:debashree_smst@smst.iitkgp.ac.in"><i class="fas fa-envelope"></i> debashree_smst@smst.iitkgp.ac.in</a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=tD8YpZUAAAAJ&hl=en" target="_blank" title="Google Scholar" class="link-scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://orcid.org/0000-0001-9683-4509" target="_blank" title="ORCID" class="link-orcid">
+                            <i class="ai ai-orcid"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <p class="research-text-header">
+                        The Medical Informatics Lab at the School of Medical Science and Technology, IIT Kharagpur, led by Debashree Guha, focuses on developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications. The group integrates decision science, data aggregation, fuzzy logic, and information fusion to address complex clinical and biomedical problems. Emphasis is placed on building interpretable, scalable, and computationally efficient decision support tools that transform heterogeneous and uncertain data into actionable knowledge. The lab’s work supports real-world deployment through web-based diagnostic platforms, rule-based reasoning systems, and physically grounded modeling approaches, with a strong orientation toward translational impact, interdisciplinary collaboration, and technology-driven healthcare solutions.
+                        </p>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <section>
+                <h2 class="section-title">Research Interests</h2>
+                <div class="tags">
+                    <span>Operations Research (OR)</span>
+                    <span>MCDM Applications in Healthcare</span>
+                    <span>Predictive Mathematical Modeling</span>
+                    <span>Uncertain Data Handling</span>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Projects</h2>
+                <div class="item">
+                    <p>1. Multi-modal Fusion of Tear Fern Patterns and Fundus Imaging for Detection of Glaucoma in Low-resource Settings Indian Council of Medical Research, Dept. of Health Research, Ministry of Health and Family Welfare Principal Investigator</p>
+                    <p>2. Fabrication of a smart lab-on-a-chip to detect salivary biomarkers of oral cancer and malignant transition of oral premalignancy for point-of-care diagnostics and machine learning-based predictive modelling INDIAN COUNCIL OF MEDICAL RESEARCH (ICMR) Co-Principal Investigator</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="section-title">Professional Activities</h2>
+                <p><strong>Reviewer:</strong> IEEE Transactions on fuzzy Systems, Information Sciences, Fuzzy Sets and Systems, Applied Soft Computing, Applied Mathematical Modelling, Kybernatica, International Journal of Machine Learning and Cybernetics, Advances in Fuzzy Systems, Neural Network and Applications, Opsearch, International Journal of operational Research etc.</p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Experience</h2>
+                <div class="item">
+                    <span class="date">June 2019 - March 2024</span>
+                    <h3>Assistant Professor</h3>
+                    <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">August 2018 - June 2019</span>
+                    <h3>Visiting Assistant Professor</h3>
+                    <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">February 2012 - August 2018</span>
+                    <h3>Assistant Professor</h3>
+                    <p><strong>Department of Mathematics, IIT Patna</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">May 2016 - July 2016</span>
+                    <h3>Visiting Researcher (SAIA-NSP scholarship)</h3>
+                    <p><strong>Department of Mathematics and Descriptive Geometry, Slovak University of Technology, Bratislava</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">February 2011 - December 2012</span>
+                    <h3>Research Associate</h3>
+                    <p><strong>Department of Mathematics, Birla Institute of Technology Patna</strong></p>
+                </div>
+            </section>
+
+            <section style="border-bottom: none;">
+                <h2 class="section-title">Funding Agencies</h2>
+                <div class="funding-grid">
+                    <div class="funding-item">
+                        <img src="anrf.jpg" alt="ANRF Logo" class="funding-logo">
+                    </div>
+                    <div class="funding-item">
+                        <img src="iitkgp.jpg" alt="IIT Kharagpur Logo" class="funding-logo">
+                    </div>
+                    <div class="funding-item">
+                        <img src="icmr.jpg" alt="ICMR Logo" class="funding-logo">
+                    </div>
+                    <div class="funding-item">
+                        <img src="nus.png" alt="NUS Logo" class="funding-logo">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="team" class="tab-content">
+        <div class="container">
+            <section>
+                <h2 class="section-title">PhD Scholars</h2>
+                <div class="collaborators-grid">
+                    <div class="collaborator-container">
+                        <img src="Pragya.jpg" alt="Pragya Gupta" class="collaborator-photo">
+                        <span class="collaborator-name">Pragya Gupta</span>
+                        <span class="collaborator-affiliation">Fuzzy Information Processing</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <img src="Chandrima.png" alt="Chandrima" class="collaborator-photo">
+                        <span class="collaborator-name">Chandrima Debnath</span>
+                        <span class="collaborator-affiliation">Machine Learning in Healthcare</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <img src="Soumita.jpg" alt="soumita" class="collaborator-photo">
+                        <span class="collaborator-name">Soumita Guria</span>
+                        <span class="collaborator-affiliation">Multi Criteria Decision Aid</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <img src="Sanchita.jpg" alt="Sanchita" class="collaborator-photo">
+                        <span class="collaborator-name">Sanchita Mondal</span>
+                        <span class="collaborator-affiliation">Machine Learning in Medical Decision Making</span>
+                    </div>
+                </div>
+            </section>
+
+            <section style="border-bottom: none;">
+                <h2 class="section-title">Alumni</h2>
+                <div class="collaborators-grid">
+                    <div class="collaborator-container">
+                        <a href="https://gowthamgit04.github.io/Gowtham12/" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+                        <img src="Gowtham.jpg" alt="Gowtham" class="collaborator-photo">
+                        <span class="collaborator-name">Gowtham Reddy N (2020-2025)</span>
+                        </a>
+                        <span class="collaborator-affiliation">Postdoctoral Fellow</span>
+                        <span class="collaborator-affiliation">IIT Gandhinagar</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <a href="https://www.bits-pilani.ac.in/hyderabad/swatihait/" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+                        <img src="Swati.jpg" alt="swati" class="collaborator-photo">
+                        <span class="collaborator-name">Swati Rani Hait (2017-2022)</span>
+                        </a>
+                        <span class="collaborator-affiliation">Assistant Professor</span>
+                        <span class="collaborator-affiliation">BITS Hyderabad</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="publications" class="tab-content">
+        <div class="container">
+            <section>
+                <h2 class="section-title">Publications</h2>
+                <div class="item">
+                    <p><strong>• Classification of epileptic EEG signals with the utilization of Bonferroni mean based fuzzy pattern tree</strong></p>
+                    <p>Expert Systems with Applications, 239, 122424. (2024)</p>
+                </div>
+                <div class="item">
+                    <p><strong>• An efficient ID CNN architecture for multi-channel EEG seizure detection</strong></p>
+                    <p>Proceedings of the 47th Annual International Conference of the IEEE EMBS. (Presented, July 2025)</p>
+                </div>
+                <div class="item">
+                    <p><strong>• EEG artifact removal using stacked multi-Head attention transformer architecture</strong></p>
+                    <p>46th Annual International Conference of the IEEE EMBS. (July 2024)</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="events" class="tab-content">
+        <div class="container">
+            <section>
+                <h2 class="section-title">Events</h2>
+                <p>Upcoming events and seminars will be posted here.</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="vacancies" class="tab-content">
+    <div class="container">
+        <section>
+            <h2 class="section-title">Vacancies</h2>
+            <div class="vacancy-item">
+                <p>We invite applications from highly motivated candidates for the National Post-Doctoral Fellowship (NPDF) to join our interdisciplinary computational research group at the Indian Institute of Technology, Kharagpur (IIT KGP), within the School of Medical Science and Technology.</p>
+                <br>
+                <p>Our research broadly spans Operational Research, Multi-Criteria Decision Making (MCDM), Medical Imaging, and Biomedical Signal Processing, with a strong emphasis on developing computationally efficient and clinically relevant solutions.</p>
+                <br>
+                <p>Interested candidates are requested to email the following documents:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>A detailed CV</li>
+                    <li>A brief background statement</li>
+                    <li>A short research proposal</li>
+                </ul>
+                <br>
+                <p>Please send your application by <strong>17 January 2026</strong> with the subject line: <strong>“NPDF Application - &lt;Your Name&gt;”</strong> to <a href="mailto:debashree_smst@smst.iitkgp.ac.in" class="supervisor-link">debashree_smst@smst.iitkgp.ac.in</a></p>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <div id="pictures" class="tab-content">
+        <div class="container">
+            <section style="border-bottom: none;">
+                <h2 class="section-title">Pictures</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="LEF.png" alt="Lab Event">
+                        </div>
+                    <div class="gallery-card">
+                        <img src="Lab.jpg" alt="Lab Event">
+                        </div>
+                    <div class="gallery-card">
+                        <img src="DC.png" alt="Field Visit">
+                        </div>
+                    <div class="gallery-card">
+                        <img src="Trip.jpg" alt="Field Visit">
+                        </div>
+                     <div class="gallery-card">
+                        <img src="Gowtham_pre.jpg" alt="Field Visit">
+                        </div>
+                    <div class="gallery-card">
+                        <img src="PGT.png" alt="Field Visit">
+                        </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Debashree Guha</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Debashree Guha Adhya | Associate Professor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+        /* TAB NAVIGATION STYLING - FIXED AT TOP */
+        .navbar {
+            background-color: #34495e;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #3498db;
+        }
+
+        .tab-button.active {
+            background-color: #3498db;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 60px 0;
+        }
+
+        .header-flex {
+            display: flex;
             align-items: center;
             gap: 40px;
             flex-wrap: wrap;
@@ -650,3 +1268,4 @@
 
 
 
+ -->
