@@ -21,7 +21,7 @@
             background-color: #ffffff;
         }
 
-        /* TAB NAVIGATION STYLING - FIXED AT TOP */
+        /* TAB NAVIGATION STYLING */
         .navbar {
             background-color: #34495e;
             width: 100%;
@@ -188,7 +188,6 @@
         .collaborator-name { font-weight: bold; color: #2c3e50; font-size: 1.1rem; margin-bottom: 4px; }
         .collaborator-affiliation { color: #666; font-size: 0.9rem; line-height: 1.2; }
 
-        /* Funding Grid */
         .funding-grid {
             display: flex;
             flex-wrap: wrap;
@@ -200,7 +199,6 @@
         .funding-logo { max-width: 150px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; }
         .funding-logo:hover { filter: grayscale(0%); opacity: 1; }
 
-        /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -211,10 +209,11 @@
         .gallery-card:hover { transform: translateY(-5px); }
         .gallery-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
 
-        /* Tab Visibility */
         .tab-content { display: none; }
         
         footer { text-align: center; padding: 30px; background: #f8f9fa; color: #666; font-size: 0.9rem; }
+
+        .supervisor-link { color: #3498db; text-decoration: none; font-weight: bold; }
 
         @media (max-width: 850px) {
             .tab-container { flex-direction: column; padding: 10px; }
@@ -226,7 +225,7 @@
 
     <nav class="navbar">
         <div class="tab-container">
-            <a href="index.html" class="nav-brand-link">
+            <a href="javascript:void(0)" class="nav-brand-link" onclick="showHome()">
                 <div class="nav-brand">MEDICAL INFORMATICS LAB</div>
             </a>
             
@@ -240,7 +239,7 @@
         </div>
     </nav>
 
-    <div id="main-landing">
+    <div id="home-content">
         <header>
             <div class="container header-flex">
                 <div class="header-left">
@@ -249,20 +248,17 @@
                     <h2>Associate Professor</h2>
                     <h2>School of Medical Science and Technology</h2>
                     <h2>IIT Kharagpur</h2>
-                    
                     <div class="contact-info">
                         <a href="mailto:debashree_smst@smst.iitkgp.ac.in"><i class="fas fa-envelope"></i> debashree_smst@smst.iitkgp.ac.in</a>
                     </div>
-
                     <div class="social-links">
                         <a href="https://scholar.google.com/citations?user=tD8YpZUAAAAJ&hl=en" target="_blank" class="link-scholar"><i class="fas fa-graduation-cap"></i></a>
                         <a href="https://orcid.org/0000-0001-9683-4509" target="_blank" class="link-orcid"><i class="ai ai-orcid"></i></a>
                     </div>
                 </div>
-
                 <div class="header-right">
                     <p class="research-text-header">
-                        The Medical Informatics Lab at the School of Medical Science and Technology, IIT Kharagpur, led by Debashree Guha, focuses on developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications. The group integrates decision science, data aggregation, fuzzy logic, and information fusion to address complex clinical and biomedical problems. Emphasis is placed on building interpretable, scalable, and computationally efficient decision support tools that transform heterogeneous and uncertain data into actionable knowledge.
+                        The Medical Informatics Lab at the School of Medical Science and Technology, IIT Kharagpur, led by Debashree Guha, focuses on developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications. The group integrates decision science, data aggregation, fuzzy logic, and information fusion to address complex clinical and biomedical problems. Emphasis is placed on building interpretable, scalable, and computationally efficient decision support tools that transform heterogeneous and uncertain data into actionable knowledge. The lab’s work supports real-world deployment through web-based diagnostic platforms, rule-based reasoning systems, and physically grounded modeling approaches, with a strong orientation toward translational impact, interdisciplinary collaboration, and technology-driven healthcare solutions.
                     </p>
                 </div>
             </div>
@@ -282,9 +278,14 @@
             <section>
                 <h2 class="section-title">Projects</h2>
                 <div class="item">
-                    <p>1. Multi-modal Fusion of Tear Fern Patterns and Fundus Imaging for Detection of Glaucoma (ICMR) - Principal Investigator</p>
-                    <p>2. Fabrication of a smart lab-on-a-chip to detect salivary biomarkers of oral cancer (ICMR) - Co-Principal Investigator</p>
+                    <p>1. Multi-modal Fusion of Tear Fern Patterns and Fundus Imaging for Detection of Glaucoma in Low-resource Settings Indian Council of Medical Research, Dept. of Health Research, Ministry of Health and Family Welfare Principal Investigator</p>
+                    <p>2. Fabrication of a smart lab-on-a-chip to detect salivary biomarkers of oral cancer and malignant transition of oral premalignancy for point-of-care diagnostics and machine learning-based predictive modelling INDIAN COUNCIL OF MEDICAL RESEARCH (ICMR) Co-Principal Investigator</p>
                 </div>
+            </section>
+            
+            <section>
+                <h2 class="section-title">Professional Activities</h2>
+                <p><strong>Reviewer:</strong> IEEE Transactions on fuzzy Systems, Information Sciences, Fuzzy Sets and Systems, Applied Soft Computing, Applied Mathematical Modelling, Kybernatica, International Journal of Machine Learning and Cybernetics, Advances in Fuzzy Systems, Neural Network and Applications, Opsearch, International Journal of operational Research etc.</p>
             </section>
 
             <section>
@@ -295,9 +296,24 @@
                     <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
                 </div>
                 <div class="item">
+                    <span class="date">August 2018 - June 2019</span>
+                    <h3>Visiting Assistant Professor</h3>
+                    <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
+                </div>
+                <div class="item">
                     <span class="date">February 2012 - August 2018</span>
                     <h3>Assistant Professor</h3>
                     <p><strong>Department of Mathematics, IIT Patna</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">May 2016 - July 2016</span>
+                    <h3>Visiting Researcher (SAIA-NSP scholarship)</h3>
+                    <p><strong>Department of Mathematics and Descriptive Geometry, Slovak University of Technology, Bratislava</strong></p>
+                </div>
+                <div class="item">
+                    <span class="date">February 2011 - December 2012</span>
+                    <h3>Research Associate</h3>
+                    <p><strong>Department of Mathematics, Birla Institute of Technology Patna</strong></p>
                 </div>
             </section>
 
@@ -305,7 +321,7 @@
                 <h2 class="section-title">Funding Agencies</h2>
                 <div class="funding-grid">
                     <img src="anrf.jpg" alt="ANRF" class="funding-logo">
-                    <img src="iitkgp.jpg" alt="IIT Kharagpur" class="funding-logo">
+                    <img src="iitkgp.jpg" alt="IITKGP" class="funding-logo">
                     <img src="icmr.jpg" alt="ICMR" class="funding-logo">
                     <img src="nus.png" alt="NUS" class="funding-logo">
                 </div>
@@ -319,14 +335,43 @@
                 <h2 class="section-title">PhD Scholars</h2>
                 <div class="collaborators-grid">
                     <div class="collaborator-container">
-                        <img src="Pragya.jpg" alt="Pragya" class="collaborator-photo">
+                        <img src="Pragya.jpg" class="collaborator-photo">
                         <span class="collaborator-name">Pragya Gupta</span>
                         <span class="collaborator-affiliation">Fuzzy Information Processing</span>
                     </div>
                     <div class="collaborator-container">
-                        <img src="Chandrima.png" alt="Chandrima" class="collaborator-photo">
+                        <img src="Chandrima.png" class="collaborator-photo">
                         <span class="collaborator-name">Chandrima Debnath</span>
                         <span class="collaborator-affiliation">Machine Learning in Healthcare</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <img src="Soumita.jpg" class="collaborator-photo">
+                        <span class="collaborator-name">Soumita Guria</span>
+                        <span class="collaborator-affiliation">Multi Criteria Decision Aid</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <img src="Sanchita.jpg" class="collaborator-photo">
+                        <span class="collaborator-name">Sanchita Mondal</span>
+                        <span class="collaborator-affiliation">Machine Learning in Medical Decision Making</span>
+                    </div>
+                </div>
+            </section>
+            <section style="border-bottom: none;">
+                <h2 class="section-title">Alumni</h2>
+                <div class="collaborators-grid">
+                    <div class="collaborator-container">
+                        <a href="https://gowthamgit04.github.io/Gowtham12/" target="_blank" style="text-decoration:none; color:inherit;">
+                            <img src="Gowtham.jpg" class="collaborator-photo">
+                            <span class="collaborator-name">Gowtham Reddy N (2020-2025)</span>
+                        </a>
+                        <span class="collaborator-affiliation">Postdoctoral Fellow, IIT Gandhinagar</span>
+                    </div>
+                    <div class="collaborator-container">
+                        <a href="https://www.bits-pilani.ac.in/hyderabad/swatihait/" target="_blank" style="text-decoration:none; color:inherit;">
+                            <img src="Swati.jpg" class="collaborator-photo">
+                            <span class="collaborator-name">Swati Rani Hait (2017-2022)</span>
+                        </a>
+                        <span class="collaborator-affiliation">Assistant Professor, BITS Hyderabad</span>
                     </div>
                 </div>
             </section>
@@ -338,8 +383,16 @@
             <section>
                 <h2 class="section-title">Publications</h2>
                 <div class="item">
-                    <p><strong>• Classification of epileptic EEG signals with fuzzy pattern tree</strong></p>
+                    <p><strong>• Classification of epileptic EEG signals with the utilization of Bonferroni mean based fuzzy pattern tree</strong></p>
                     <p>Expert Systems with Applications, 239, 122424. (2024)</p>
+                </div>
+                <div class="item">
+                    <p><strong>• An efficient ID CNN architecture for multi-channel EEG seizure detection</strong></p>
+                    <p>Proceedings of the 47th Annual International Conference of the IEEE EMBS. (Presented, July 2025)</p>
+                </div>
+                <div class="item">
+                    <p><strong>• EEG artifact removal using stacked multi-Head attention transformer architecture</strong></p>
+                    <p>46th Annual International Conference of the IEEE EMBS. (July 2024)</p>
                 </div>
             </section>
         </div>
@@ -358,8 +411,13 @@
         <div class="container">
             <section>
                 <h2 class="section-title">Vacancies</h2>
-                <p>We invite applications for the National Post-Doctoral Fellowship (NPDF).</p>
-                <p>Email your CV to <a href="mailto:debashree_smst@smst.iitkgp.ac.in">debashree_smst@smst.iitkgp.ac.in</a></p>
+                <p>We invite applications from highly motivated candidates for the National Post-Doctoral Fellowship (NPDF) to join our interdisciplinary computational research group at the Indian Institute of Technology, Kharagpur (IIT KGP), within the School of Medical Science and Technology.</p>
+                <br>
+                <p>Our research broadly spans Operational Research, Multi-Criteria Decision Making (MCDM), Medical Imaging, and Biomedical Signal Processing, with a strong emphasis on developing computationally efficient and clinically relevant solutions.</p>
+                <br>
+                <p>Interested candidates are requested to email a detailed CV, background statement, and short research proposal.</p>
+                <br>
+                <p>Please send your application by <strong>17 January 2026</strong> to <a href="mailto:debashree_smst@smst.iitkgp.ac.in" class="supervisor-link">debashree_smst@smst.iitkgp.ac.in</a></p>
             </section>
         </div>
     </div>
@@ -373,6 +431,8 @@
                     <div class="gallery-card"><img src="Lab.jpg"></div>
                     <div class="gallery-card"><img src="DC.png"></div>
                     <div class="gallery-card"><img src="Trip.jpg"></div>
+                    <div class="gallery-card"><img src="Gowtham_pre.jpg"></div>
+                    <div class="gallery-card"><img src="PGT.png"></div>
                 </div>
             </section>
         </div>
@@ -386,27 +446,43 @@
 
     <script>
         function openTab(evt, tabName) {
-            var i, tabcontent, tablinks, mainLanding;
+            var i, tabcontent, tablinks;
+            // Hide Home content
+            document.getElementById("home-content").style.display = "none";
             
-            // Hide the main landing content
-            mainLanding = document.getElementById("main-landing");
-            mainLanding.style.display = "none";
-
             // Hide all tab contents
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-
-            // Deactivate all buttons
+            
+            // Deactivate buttons
             tablinks = document.getElementsByClassName("tab-button");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-
-            // Show the selected tab and mark button as active
+            
+            // Show selected
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+
+        function showHome() {
+            var i, tabcontent, tablinks;
+            // Show Home content
+            document.getElementById("home-content").style.display = "block";
+            
+            // Hide others
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Deactivate buttons
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
         }
     </script>
 </body>
