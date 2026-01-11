@@ -189,6 +189,38 @@
         .collaborator-affiliation { color: #666; font-size: 0.9rem; line-height: 1.2; }
 
         .funding-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.funding-logo { 
+    max-width: 120px; 
+    filter: grayscale(100%); 
+    transition: 0.3s; 
+    opacity: 0.8; 
+}
+
+.funding-logo:hover { 
+    filter: grayscale(0%); 
+    opacity: 1; 
+    transform: scale(1.05); /* Slight zoom effect for better UX */
+}
+
+/* On small screens, shrink the logos slightly to prevent cropping */
+@media (max-width: 480px) {
+    .funding-logo {
+        max-width: 90px;
+    }
+    .funding-grid {
+        gap: 15px;
+    }
+}
+
+        /* .funding-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -197,7 +229,7 @@
             margin-top: 30px;
         }
         .funding-logo { max-width: 150px; filter: grayscale(100%); transition: 0.3s; opacity: 0.8; }
-        .funding-logo:hover { filter: grayscale(0%); opacity: 1; }
+        .funding-logo:hover { filter: grayscale(0%); opacity: 1; } */
 
         .gallery-grid {
             display: grid;
@@ -556,6 +588,7 @@
     </script>
 </body>
 </html>
+
 
 
 
