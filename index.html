@@ -261,6 +261,59 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Birthday Container */
+.birthday-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+/* The Happy Birthday Badge */
+.birthday-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #e74c3c;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    animation: bday-bounce 2s infinite;
+}
+
+/* Floating Balloons */
+.balloon {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 0;
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    animation: floatUp 3s ease-in infinite;
+}
+
+@keyframes bday-bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-6px);}
+    60% {transform: translateY(-3px);}
+}
+
+@keyframes floatUp {
+    0% { bottom: 0; opacity: 0; transform: translateX(0); }
+    20% { opacity: 1; }
+    100% { bottom: 120px; opacity: 0; transform: translateX(15px); }
+}
+
+/* Different balloon positions and colors */
+.bal-1 { left: -10px; animation-delay: 0s; }
+.bal-2 { right: -10px; animation-delay: 1s; }
+.bal-3 { left: 15px; animation-delay: 2s; }
+
+        
         /* Small Mobile Portrait Adjustment */
         @media (max-width: 480px) {
             .tab-button { padding: 8px 6px; font-size: 0.75rem; }
@@ -412,6 +465,68 @@
     </div>
 
     <div id="team" class="tab-content">
+    <div class="container">
+        <section>
+            <h2 class="section-title">PhD Scholars</h2>
+            <div class="collaborators-grid">
+                <div class="collaborator-container">
+                    <div class="birthday-wrap" id="bday-pragya">
+                        <img src="Pragya.jpg" class="collaborator-photo">
+                    </div>
+                    <span class="collaborator-name">Pragya Gupta</span>
+                    <span class="collaborator-affiliation">Fuzzy Information Processing</span>
+                </div>
+                <div class="collaborator-container">
+                    <div class="birthday-wrap" id="bday-chandrima">
+                        <img src="Chandrima.png" class="collaborator-photo">
+                    </div>
+                    <span class="collaborator-name">Chandrima Debnath</span>
+                    <span class="collaborator-affiliation">Machine Learning in Healthcare</span>
+                </div>
+                <div class="collaborator-container">
+                    <div class="birthday-wrap" id="bday-soumita">
+                        <img src="Soumita.jpg" class="collaborator-photo">
+                    </div>
+                    <span class="collaborator-name">Soumita Guria</span>
+                    <span class="collaborator-affiliation">Multi Criteria Decision Aid</span>
+                </div>
+                <div class="collaborator-container">
+                    <div class="birthday-wrap" id="bday-sanchita">
+                        <img src="Sanchita.jpg" class="collaborator-photo">
+                    </div>
+                    <span class="collaborator-name">Sanchita Mondal</span>
+                    <span class="collaborator-affiliation">Machine Learning in Medical Decision Making</span>
+                </div>
+            </div>
+        </section>
+
+        <section style="border-bottom: none;">
+            <h2 class="section-title">Alumni</h2>
+            <div class="collaborators-grid">
+                <div class="collaborator-container">
+                    <a href="https://gowthamgit04.github.io/Gowtham12/" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="birthday-wrap" id="bday-gowtham">
+                            <img src="Gowtham.jpg" class="collaborator-photo">
+                        </div>
+                        <span class="collaborator-name">Gowtham Reddy N (2020-2025)</span>
+                    </a>
+                    <span class="collaborator-affiliation">Postdoctoral Fellow, IIT Gandhinagar</span>
+                </div>
+                <div class="collaborator-container">
+                    <a href="https://www.bits-pilani.ac.in/hyderabad/swatihait/" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="birthday-wrap" id="bday-swati">
+                            <img src="Swati.jpg" class="collaborator-photo">
+                        </div>
+                        <span class="collaborator-name">Swati Rani Hait (2017-2022)</span>
+                    </a>
+                    <span class="collaborator-affiliation">Assistant Professor, BITS Hyderabad</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <!-- <div id="team" class="tab-content">
         <div class="container">
             <section>
                 <h2 class="section-title">PhD Scholars</h2>
@@ -458,7 +573,7 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div> -->
 
    <!-- <div id="publications" class="tab-content">
         <div class="container">
@@ -666,9 +781,49 @@
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
         }
+
+        /* --- BIRTHDAY LOGIC --- */
+        function checkBirthdays() {
+            const today = new Date();
+            const month = today.getMonth() + 1; 
+            const day = today.getDate();
+
+            // Set the Month and Day here
+            const birthdays = [
+                { id: "bday-pragya", month: 3, day: 29 },   // Pragya (Test: Today)
+                { id: "bday-chandrima", month: 12, day: 7 }, 
+                { id: "bday-soumita", month: 11, day: 27 },
+                { id: "bday-sanchita", month: 1, day: 14 },
+                { id: "bday-gowtham", month: 1, day: 12 },
+                { id: "bday-swati", month: 8, day: 24 }
+            ];
+
+            birthdays.forEach(person => {
+                if (person.month === month && person.day === day) {
+                    const container = document.getElementById(person.id);
+                    if (container) {
+                        container.innerHTML += `
+                            <div class="birthday-badge">🎂 Happy Birthday!</div>
+                            <span class="balloon bal-1">🎈</span>
+                            <span class="balloon bal-2">🎈</span>
+                            <span class="balloon bal-3">🎈</span>
+                        `;
+                    }
+                }
+            });
+        }
+
+        // Run when page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            checkBirthdays();
+        });
+
+
+        
     </script>
 </body>
 </html>
+
 
 
 
