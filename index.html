@@ -210,7 +210,31 @@
     transform: scale(1.05); /* Slight zoom effect for better UX */
 }
 
-        /* Red Flickering Animation */
+        .flicker-red {
+    color: #e74c3c;
+    font-weight: bold;
+    animation: flickerAnimation 1.5s infinite;
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* This makes the button red only when it's upcoming */
+.upcoming-btn {
+    background-color: #e74c3c !important;
+    animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+        /* /* Red Flickering Animation */
 .flicker-red {
     color: #e74c3c; /* Red color */
     font-weight: bold;
@@ -232,7 +256,7 @@
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
     70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
-}
+} */
 
 /* On small screens, shrink the logos slightly to prevent cropping */
 @media (max-width: 480px) {
@@ -730,6 +754,22 @@
         <div class="container">
             <section>
                 <h2 class="section-title">News</h2>
+                <div class="item" data-date="2026-01-25">
+    <span class="date">January 2026</span>
+    <p><strong>Pragya Gupta</strong> and <strong>Soumita Guria</strong> will be presenting their research at the <strong>Eighteenth International Conference on Fuzzy Set Theory and Applications (FSTA 2026)</strong>, to be held in Liptovský Ján, Slovak Republic, from January 25 to January 30, 2026.</p>
+</div>
+
+<div class="item" data-date="2026-01-16">
+    <span class="date">January 2026</span>
+    <p><strong>Ankita Dutta</strong> will be presenting her <strong>Ph.D. Synopsis Seminar</strong> on <strong>16 January 2026</strong>, starting from <strong>4 PM IST</strong>.</p>
+    <p>
+        <a href="https://meet.google.com/qpq-cidm-zcb" target="_blank" 
+           class="pulse-button"
+           style="display: inline-block; padding: 8px 15px; background-color: #3498db; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
+           <i class="fas fa-video"></i> Join via Google Meet
+        </a>
+    </p>
+</div>
 
                 <!-- <div class="item">
                     <span class="date">January 2026</span>
@@ -747,7 +787,7 @@
                     </p>
                 </div> -->
 
-                <div class="item">
+                <!-- <div class="item">
     <span class="date">January 2026</span>
     <p><span class="flicker-red">● UPCOMING:</span> <strong>Ankita Dutta</strong> will be presenting her <strong>Ph.D. Synopsis Seminar</strong> on <strong>16 January 2026</strong>, starting from <strong>4 PM IST</strong>.</p>
     <p>
@@ -762,7 +802,7 @@
 <div class="item">
     <span class="date">January 2026</span>
     <p><span class="flicker-red">● UPCOMING:</span> <strong>Pragya Gupta</strong> and <strong>Soumita Guria</strong> will be presenting their research at the <strong>FSTA 2026</strong> in Slovak Republic, from January 25 to January 30, 2026.</p>
-</div>
+</div> -->
 
 
                 <div class="item">
@@ -835,6 +875,38 @@
             }
         }
 
+        function applyAutoFlicker() {
+    const today = new Date();
+    // Set time to midnight for accurate day comparison
+    today.setHours(0, 0, 0, 0);
+
+    // Find all news items that have a data-date attribute
+    const newsItems = document.querySelectorAll('.item[data-date]');
+
+    newsItems.forEach(item => {
+        const eventDate = new Date(item.getAttribute('data-date'));
+        
+        // If today is before or on the event date
+        if (today <= eventDate) {
+            const textParagraph = item.querySelector('p');
+            const googleMeetBtn = item.querySelector('a');
+
+            // 1. Add the red flicker text
+            if (textParagraph && !textParagraph.innerHTML.includes('UPCOMING')) {
+                textParagraph.innerHTML = '<span class="flicker-red">● UPCOMING: </span>' + textParagraph.innerHTML;
+            }
+
+            // 2. Make the button red and pulsing
+            if (googleMeetBtn) {
+                googleMeetBtn.classList.add('upcoming-btn');
+            }
+        }
+    });
+}
+
+// Run it when page loads
+document.addEventListener("DOMContentLoaded", applyAutoFlicker);
+
         /* --- BIRTHDAY LOGIC --- */
         function checkBirthdays() {
             const today = new Date();
@@ -876,6 +948,7 @@
     </script>
 </body>
 </html>
+
 
 
 
