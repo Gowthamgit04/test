@@ -299,6 +299,52 @@
             .tab-container { flex-direction: column; padding: 10px; }
             .nav-brand { padding: 5px 0; }
         }
+
+
+
+        /* Menu Icon Style (Hidden on Desktop) */
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show only on mobile */
+    }
+
+    .nav-buttons {
+        display: none; /* Hide buttons by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #34495e;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        border-top: 1px solid #455a64;
+    }
+
+    .nav-buttons.active {
+        display: flex; /* Show when menu icon is clicked */
+    }
+
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        padding: 15px 25px;
+        border-bottom: 1px solid #2c3e50;
+    }
+
+    .tab-container {
+        flex-wrap: wrap;
+    }
+}
+
+
+        
         /* Small Mobile Portrait Adjustment */
         @media (max-width: 480px) {
             .tab-button {
@@ -419,7 +465,7 @@
 </head>
 <body>
 
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <div class="tab-container">
             <a href="javascript:void(0)" class="nav-brand-link" onclick="showHome()">
                 <div class="nav-brand">MEDICAL INFORMATICS LAB</div>
@@ -436,7 +482,28 @@
                 <button class="tab-button" onclick="openTab(event, 'documents')">Documents</button>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <nav class="navbar">
+    <div class="tab-container">
+        <a href="javascript:void(0)" class="nav-brand-link" onclick="showHome()">
+            <div class="nav-brand">MEDICAL INFORMATICS LAB</div>
+        </a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-buttons" id="navButtons">
+            <button class="tab-button" onclick="handleTabClick(event, 'home')">Home</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'team')">Team</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'publications')">Publications</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'events')">Events</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'vacancies')">Vacancies</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'pictures')">Pictures</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'documents')">Documents</button>
+            <button class="tab-button" onclick="handleTabClick(event, 'news')">News</button>
+        </div>
+    </div>
+</nav>
 
     <div id="home-content">
         <header>
@@ -934,6 +1001,24 @@
             }
         }
 
+        function toggleMenu() {
+    const nav = document.getElementById("navButtons");
+    nav.classList.toggle("active");
+}
+
+function handleTabClick(evt, tabName) {
+    // Close the mobile menu after clicking a tab
+    const nav = document.getElementById("navButtons");
+    nav.classList.remove("active");
+
+    // Standard tab logic
+    if (tabName === 'home') {
+        showHome();
+    } else {
+        openTab(evt, tabName);
+    }
+}
+
         function applyAutoFlicker() {
     const today = new Date();
     // Set time to midnight for accurate day comparison
@@ -1007,6 +1092,7 @@ document.addEventListener("DOMContentLoaded", applyAutoFlicker);
     </script>
 </body>
 </html>
+
 
 
 
