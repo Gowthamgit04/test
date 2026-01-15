@@ -302,47 +302,7 @@
 
 
 
-        /* Menu Icon Style (Hidden on Desktop) */
-.menu-icon {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 15px;
-}
-
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block; /* Show only on mobile */
-    }
-
-    .nav-buttons {
-        display: none; /* Hide buttons by default on mobile */
-        flex-direction: column;
-        width: 100%;
-        background-color: #34495e;
-        position: absolute;
-        top: 60px; /* Adjust based on navbar height */
-        left: 0;
-        border-top: 1px solid #455a64;
-    }
-
-    .nav-buttons.active {
-        display: flex; /* Show when menu icon is clicked */
-    }
-
-    .tab-button {
-        width: 100%;
-        text-align: left;
-        padding: 15px 25px;
-        border-bottom: 1px solid #2c3e50;
-    }
-
-    .tab-container {
-        flex-wrap: wrap;
-    }
-}
-
+      
 
         
         /* Small Mobile Portrait Adjustment */
@@ -1001,23 +961,6 @@
             }
         }
 
-        function toggleMenu() {
-    const nav = document.getElementById("navButtons");
-    nav.classList.toggle("active");
-}
-
-function handleTabClick(evt, tabName) {
-    // Close the mobile menu after clicking a tab
-    const nav = document.getElementById("navButtons");
-    nav.classList.remove("active");
-
-    // Standard tab logic
-    if (tabName === 'home') {
-        showHome();
-    } else {
-        openTab(evt, tabName);
-    }
-}
 
         function applyAutoFlicker() {
     const today = new Date();
@@ -1092,6 +1035,7 @@ document.addEventListener("DOMContentLoaded", applyAutoFlicker);
     </script>
 </body>
 </html>
+
 
 
 
