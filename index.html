@@ -247,23 +247,12 @@
     100% { opacity: 1;   text-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
 }
 
-/* /* Optional: Pulse effect for the Google Meet button */
+/* Optional: Pulse effect for the Google Meet button */
 .pulse-button {
     animation: pulseRed 2s infinite;
-} */
-
-        /* The pulsing "Active" state */
-.upcoming-btn {
-    background-color: #e74c3c !important; /* Red for attention */
-    animation: pulseRed 2s infinite;
 }
 
-/* The neutral "Past" state */
-.past-btn {
-    background-color: #95a5a6 !important; /* Grey color */
-    pointer-events: none; /* Optional: makes it unclickable after event */
-    opacity: 0.7;
-}
+        
 
 @keyframes pulseRed {
     0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
@@ -862,7 +851,7 @@
     <p><strong>Pragya Gupta</strong> and <strong>Soumita Guria</strong> will be presenting their research at the <strong>Eighteenth International Conference on Fuzzy Set Theory and Applications (FSTA 2026)</strong>, to be held in Liptovský Ján, Slovak Republic, from January 25 to January 30, 2026.</p>
 </div>
 
-                <div class="item" data-date="2026-01-16" data-time="16:00">
+                <!-- <div class="item" data-date="2026-01-16" data-time="16:00">
     <span class="date">January 2026</span>
     <p><strong>Ankita Dutta</strong> will be presenting her <strong>Ph.D. Synopsis Seminar</strong> on <strong>16 January 2026</strong>, starting from <strong>4 PM IST</strong>.</p>
     <p>
@@ -870,9 +859,9 @@
            <i class="fas fa-video"></i> Join via Google Meet
         </a>
     </p>
-</div>
+</div> -->
 
-<!-- <div class="item" data-date="2026-01-15">
+<div class="item" data-date="2026-01-16">
     <span class="date">January 2026</span>
     <p><strong>Ankita Dutta</strong> will be presenting her <strong>Ph.D. Synopsis Seminar</strong> on <strong>16 January 2026</strong>, starting from <strong>4 PM IST</strong>.</p>
     <p>
@@ -882,7 +871,7 @@
            <i class="fas fa-video"></i> Join via Google Meet
         </a>
     </p>
-</div> -->
+</div>
 
                 <!-- <div class="item">
                     <span class="date">January 2026</span>
@@ -991,70 +980,70 @@
         }
 
 
-        function applyAutoFlicker() {
-    const now = new Date();
-    
-    // Find all news items
-    const newsItems = document.querySelectorAll('.item[data-date]');
-
-    newsItems.forEach(item => {
-        const dateStr = item.getAttribute('data-date');
-        const timeStr = item.getAttribute('data-time') || "23:59"; // Default to end of day
-        
-        const eventDateTime = new Date(`${dateStr}T${timeStr}`);
-        const googleMeetBtn = item.querySelector('a');
-        const textParagraph = item.querySelector('p');
-
-        if (now <= eventDateTime) {
-            // EVENT IS UPCOMING OR CURRENT
-            if (textParagraph && !textParagraph.innerHTML.includes('UPCOMING')) {
-                textParagraph.innerHTML = '<span class="flicker-red">● UPCOMING: </span>' + textParagraph.innerHTML;
-            }
-            if (googleMeetBtn) {
-                googleMeetBtn.classList.add('upcoming-btn');
-            }
-        } else {
-            // EVENT HAS PASSED
-            if (googleMeetBtn) {
-                googleMeetBtn.classList.remove('upcoming-btn');
-                googleMeetBtn.classList.add('past-btn');
-                googleMeetBtn.innerHTML = '<i class="fas fa-check"></i> Seminar Completed';
-            }
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", applyAutoFlicker);
-
-
 //         function applyAutoFlicker() {
-//     const today = new Date();
-//     // Set time to midnight for accurate day comparison
-//     today.setHours(0, 0, 0, 0);
-
-//     // Find all news items that have a data-date attribute
+//     const now = new Date();
+    
+//     // Find all news items
 //     const newsItems = document.querySelectorAll('.item[data-date]');
 
 //     newsItems.forEach(item => {
-//         const eventDate = new Date(item.getAttribute('data-date'));
+//         const dateStr = item.getAttribute('data-date');
+//         const timeStr = item.getAttribute('data-time') || "23:59"; // Default to end of day
         
-//         // If today is before or on the event date
-//         if (today <= eventDate) {
-//             const textParagraph = item.querySelector('p');
-//             const googleMeetBtn = item.querySelector('a');
+//         const eventDateTime = new Date(`${dateStr}T${timeStr}`);
+//         const googleMeetBtn = item.querySelector('a');
+//         const textParagraph = item.querySelector('p');
 
-//             // 1. Add the red flicker text
+//         if (now <= eventDateTime) {
+//             // EVENT IS UPCOMING OR CURRENT
 //             if (textParagraph && !textParagraph.innerHTML.includes('UPCOMING')) {
 //                 textParagraph.innerHTML = '<span class="flicker-red">● UPCOMING: </span>' + textParagraph.innerHTML;
 //             }
-
-//             // 2. Make the button red and pulsing
 //             if (googleMeetBtn) {
 //                 googleMeetBtn.classList.add('upcoming-btn');
+//             }
+//         } else {
+//             // EVENT HAS PASSED
+//             if (googleMeetBtn) {
+//                 googleMeetBtn.classList.remove('upcoming-btn');
+//                 googleMeetBtn.classList.add('past-btn');
+//                 googleMeetBtn.innerHTML = '<i class="fas fa-check"></i> Seminar Completed';
 //             }
 //         }
 //     });
 // }
+
+document.addEventListener("DOMContentLoaded", applyAutoFlicker);
+
+
+        function applyAutoFlicker() {
+    const today = new Date();
+    // Set time to midnight for accurate day comparison
+    today.setHours(0, 0, 0, 0);
+
+    // Find all news items that have a data-date attribute
+    const newsItems = document.querySelectorAll('.item[data-date]');
+
+    newsItems.forEach(item => {
+        const eventDate = new Date(item.getAttribute('data-date'));
+        
+        // If today is before or on the event date
+        if (today <= eventDate) {
+            const textParagraph = item.querySelector('p');
+            const googleMeetBtn = item.querySelector('a');
+
+            // 1. Add the red flicker text
+            if (textParagraph && !textParagraph.innerHTML.includes('UPCOMING')) {
+                textParagraph.innerHTML = '<span class="flicker-red">● UPCOMING: </span>' + textParagraph.innerHTML;
+            }
+
+            // 2. Make the button red and pulsing
+            if (googleMeetBtn) {
+                googleMeetBtn.classList.add('upcoming-btn');
+            }
+        }
+    });
+}
 
 // Run it when page loads
 document.addEventListener("DOMContentLoaded", applyAutoFlicker);
@@ -1100,6 +1089,7 @@ document.addEventListener("DOMContentLoaded", applyAutoFlicker);
     </script>
 </body>
 </html>
+
 
 
 
