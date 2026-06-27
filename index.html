@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Debashree Guha Adhya | Associate Professor</title>
+    <title>PMML | Predictive Mathematical Modelling Lab</title>
+    <meta name="description" content="Predictive Mathematical Modelling Lab (PMML) at IIT Kharagpur - Developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <style>
@@ -91,9 +92,291 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 40%, #1a3a5c 100%);
             color: #ffffff;
-            padding: 60px 0;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(52, 152, 219, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .lab-hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lab-hero-subtitle {
+            font-size: 1.15rem;
+            color: #7eb8e0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .lab-hero-desc {
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #c8d6e5;
+            line-height: 1.9;
+            max-width: 900px;
+        }
+
+        .lab-hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .lab-hero-badges span {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.15);
+            border: 1px solid rgba(52, 152, 219, 0.35);
+            color: #7eb8e0;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        .lab-hero-badges span:hover {
+            background: rgba(52, 152, 219, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .pi-card {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid #dce4ed;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            overflow: visible;
+            position: relative;
+        }
+
+        .pi-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .pi-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52,152,219,0.2);
+        }
+
+        .pi-info h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .pi-info .pi-title {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .pi-info .pi-affiliation {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .pi-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .pi-links a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .pi-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .pi-links .link-scholar { color: #4285f4; }
+        .pi-links .link-orcid { color: #A6CE39; }
+        .pi-links .link-email { color: #3498db; }
+        .pi-links .link-web { color: #e67e22; }
+
+        .pi-left-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .pi-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .lab-hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* PI Image Hover overlay container */
+        .pi-image-wrap {
+            position: relative;
+            flex-shrink: 0;
+            width: 140px;
+            height: 140px;
+            border-radius: 10px;
+            overflow: visible;
+        }
+
+        .pi-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
+        }
+
+        /* PI Qualification hover wrapper */
+        .pi-education-wrap {
+            cursor: help;
+            border-radius: 6px;
+            padding: 4px 8px;
+            margin: 4px -8px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pi-education-wrap:hover {
+            background-color: rgba(52, 152, 219, 0.08);
+            box-shadow: inset 0 0 0 1px rgba(52, 152, 219, 0.2);
+        }
+
+        .pi-hover-bio {
+            position: absolute;
+            top: 20px;
+            left: 200px;
+            width: 600px;
+            min-height: 140px;
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 60%, #1a3a5c 100%);
+            color: #dce6f0;
+            padding: 20px 24px;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            text-align: justify;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+            z-index: 100;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+            pointer-events: none;
+        }
+
+        .pi-education-wrap:hover .pi-hover-bio {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .pi-hover-bio::before {
+            content: 'Research Interests';
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #3498db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(52,152,219,0.3);
+            padding-bottom: 8px;
+        }
+
+        /* Education List */
+        .pi-education {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 6px;
+        }
+
+        .pi-education li {
+            font-size: 0.85rem;
+            color: #555;
+            padding: 3px 0 3px 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pi-education li::before {
+            content: '\f19d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 0.75rem;
+            top: 5px;
+        }
+
+        .pi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e8f4fd, #d0eafc);
+            color: #2980b9;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 12px;
+            margin-top: 6px;
+            border: 1px solid rgba(52,152,219,0.2);
+        }
+
+        @media (max-width: 600px) {
+            .pi-image-wrap {
+                width: 130px;
+                height: 130px;
+            }
+            .pi-hover-bio {
+                width: 280px;
+                font-size: 0.75rem;
+                padding: 14px;
+                left: 10px;
+                top: 10px;
+            }
         }
 
         .header-flex {
@@ -436,7 +719,7 @@
     <nav class="navbar">
         <div class="tab-container">
             <a href="javascript:void(0)" class="nav-brand-link" onclick="showHome()">
-                <div class="nav-brand">MEDICAL INFORMATICS LAB</div>
+                <div class="nav-brand">PMML</div>
             </a>
             
             <div class="nav-buttons">
@@ -475,51 +758,24 @@
 
     <div id="home-content">
         <header>
-            <div class="container header-flex">
-                <div class="header-left">
-                    <!-- <img src="Debashree.jpg" alt="Dr. Debashree Guha" class="profile-photo"> -->
-                    <a href="https://www.iitkgp.ac.in/department/MM/faculty/mm-debashree_smst" target="_blank">
-        <img src="Debashree.jpg" alt="Dr. Debashree Guha" class="profile-photo" style="cursor: pointer;">
-    </a>
-                    <h1>Dr. Debashree Guha Adhya</h1>
-                    <h2>Associate Professor</h2>
-                    <h2>School of Medical Science and Technology</h2>
-                    <h2>IIT Kharagpur</h2>
-                    <!-- <div class="contact-info">
-                        <a href="mailto:debashree_smst@smst.iitkgp.ac.in"><i class="fas fa-envelope"></i> debashree_smst@smst.iitkgp.ac.in</a>
-                    </div> -->
-
-                    <div class="contact-info">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=debashree_smst@smst.iitkgp.ac.in" target="_blank">
-        <i class="fas fa-envelope"></i> debashree_smst@smst.iitkgp.ac.in
-    </a>
-</div>
-
-                    
-                    <div class="social-links">
-                        <a href="https://scholar.google.com/citations?user=tD8YpZUAAAAJ&hl=en" target="_blank" class="link-scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://orcid.org/0000-0001-9683-4509" target="_blank" class="link-orcid"><i class="ai ai-orcid"></i></a>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <p class="research-text-header">
-                        The Medical Informatics Lab at the School of Medical Science and Technology, IIT Kharagpur, led by Debashree Guha, focuses on developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications. The group integrates decision science, data aggregation, fuzzy logic, and information fusion to address complex clinical and biomedical problems. Emphasis is placed on building interpretable, scalable, and computationally efficient decision support tools that transform heterogeneous and uncertain data into actionable knowledge. The lab’s work supports real-world deployment through web-based diagnostic platforms, rule-based reasoning systems, and physically grounded modeling approaches, with a strong orientation toward translational impact, interdisciplinary collaboration, and technology-driven healthcare solutions.
-                    </p>
+            <div class="container">
+                <h1 class="lab-hero-title">Predictive Mathematical Modelling Lab</h1>
+                <p class="lab-hero-subtitle">PMML &mdash; School of Medical Science and Technology, IIT Kharagpur</p>
+                <p class="lab-hero-desc">
+                    The Predictive Mathematical Modelling Lab (PMML) at the School of Medical Science and Technology, IIT Kharagpur, focuses on developing intelligent, uncertainty-aware decision-making frameworks for healthcare and biomedical applications. The group integrates decision science, data aggregation, fuzzy logic, and information fusion to address complex clinical and biomedical problems. Emphasis is placed on building interpretable, scalable, and computationally efficient decision support tools that transform heterogeneous and uncertain data into actionable knowledge. The lab's work supports real-world deployment through web-based diagnostic platforms, rule-based reasoning systems, and physically grounded modeling approaches, with a strong orientation toward translational impact, interdisciplinary collaboration, and technology-driven healthcare solutions.
+                </p>
+                <div class="lab-hero-badges">
+                    <span>Operations Research (OR)</span>
+                    <span>MCDM Applications in Healthcare</span>
+                    <span>Predictive Mathematical Modeling</span>
+                    <span>Uncertain Data Handling</span>
+                    <span>Fuzzy Logic &amp; Information Fusion</span>
+                    <span>Medical Decision Support</span>
                 </div>
             </div>
         </header>
 
         <div class="container">
-            <section>
-                <h2 class="section-title">Research Interests</h2>
-                <div class="tags">
-                    <span>Operations Research (OR)</span>
-                    <span>MCDM Applications in Healthcare</span>
-                    <span>Predictive Mathematical Modeling</span>
-                    <span>Uncertain Data Handling</span>
-                </div>
-            </section>
-
             <section>
                 <h2 class="section-title">Projects</h2>
                 <div class="item">
@@ -527,72 +783,66 @@
                     <p>2. Fabrication of a smart lab-on-a-chip to detect salivary biomarkers of oral cancer and malignant transition of oral premalignancy for point-of-care diagnostics and machine learning-based predictive modelling INDIAN COUNCIL OF MEDICAL RESEARCH (ICMR) Co-Principal Investigator</p>
                 </div>
             </section>
-            
-            <!-- <section>
-                <h2 class="section-title">Professional Activities</h2>
-                <p><strong>Reviewer:</strong> IEEE Transactions on fuzzy Systems, Information Sciences, Fuzzy Sets and Systems, Applied Soft Computing, Applied Mathematical Modelling, Kybernatica, International Journal of Machine Learning and Cybernetics, Advances in Fuzzy Systems, Neural Network and Applications, Opsearch, International Journal of operational Research etc.</p>
-            </section>
 
-            <section>
-                <h2 class="section-title">Experience</h2>
-                <div class="item">
-                    <span class="date">June 2019 - March 2024</span>
-                    <h3>Assistant Professor</h3>
-                    <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
-                </div>
-                <div class="item">
-                    <span class="date">August 2018 - June 2019</span>
-                    <h3>Visiting Assistant Professor</h3>
-                    <p><strong>School of Medical Science & Technology, IIT Kharagpur</strong></p>
-                </div>
-                <div class="item">
-                    <span class="date">February 2012 - August 2018</span>
-                    <h3>Assistant Professor</h3>
-                    <p><strong>Department of Mathematics, IIT Patna</strong></p>
-                </div>
-                <div class="item">
-                    <span class="date">May 2016 - July 2016</span>
-                    <h3>Visiting Researcher (SAIA-NSP scholarship)</h3>
-                    <p><strong>Department of Mathematics and Descriptive Geometry, Slovak University of Technology, Bratislava</strong></p>
-                </div>
-                <div class="item">
-                    <span class="date">February 2011 - December 2012</span>
-                    <h3>Research Associate</h3>
-                    <p><strong>Department of Mathematics, Birla Institute of Technology Patna</strong></p>
-                </div>
-            </section> -->
-
-            <!-- <section style="border-bottom: none;">
+            <section style="border-bottom: none;">
                 <h2 class="section-title">Funding Agencies</h2>
                 <div class="funding-grid">
-                    <img src="anrf.jpg" alt="ANRF" class="funding-logo">
-                    <img src="iitkgp.jpg" alt="IITKGP" class="funding-logo">
-                    <img src="icmr.jpg" alt="ICMR" class="funding-logo">
-                    <img src="nus.png" alt="NUS" class="funding-logo">
+                    <a href="https://www.anrfonline.in/ANRF/HomePage" target="_blank">
+                        <img src="anrf.jpg" alt="ANRF" class="funding-logo">
+                    </a>
+                    <a href="https://www.iitkgp.ac.in/" target="_blank">
+                        <img src="iitkgp.jpg" alt="IITKGP" class="funding-logo">
+                    </a>
+                    <a href="https://www.icmr.gov.in/" target="_blank">
+                        <img src="icmr.jpg" alt="ICMR" class="funding-logo">
+                    </a>
+                    <a href="https://www.nus.edu.sg/" target="_blank">
+                        <img src="nus.png" alt="NUS" class="funding-logo">
+                    </a>
                 </div>
-            </section> -->
-            <section style="border-bottom: none;">
-    <h2 class="section-title">Funding Agencies</h2>
-    <div class="funding-grid">
-        <a href="https://www.anrfonline.in/ANRF/HomePage" target="_blank">
-            <img src="anrf.jpg" alt="ANRF" class="funding-logo">
-        </a>
-        <a href="https://www.iitkgp.ac.in/" target="_blank">
-            <img src="iitkgp.jpg" alt="IITKGP" class="funding-logo">
-        </a>
-        <a href="https://www.icmr.gov.in/" target="_blank">
-            <img src="icmr.jpg" alt="ICMR" class="funding-logo">
-        </a>
-        <a href="https://www.nus.edu.sg/" target="_blank">
-            <img src="nus.png" alt="NUS" class="funding-logo">
-        </a>
-    </div>
-</section>
+            </section>
         </div>
     </div>
 
     <div id="team" class="tab-content">
     <div class="container">
+        <!-- Principal Investigator -->
+        <section>
+            <h2 class="section-title">Principal Investigator</h2>
+            <div class="pi-card">
+                <div class="pi-left-col">
+                    <div class="pi-image-wrap">
+                        <a href="https://www.iitkgp.ac.in/department/MM/faculty/mm-debashree_smst" target="_blank">
+                            <img src="Debashree.jpg" alt="Dr. Debashree Guha Adhya">
+                        </a>
+                    </div>
+                    <div class="pi-links">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=debashree_smst@smst.iitkgp.ac.in" target="_blank" class="link-email" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?user=tD8YpZUAAAAJ&hl=en" target="_blank" class="link-scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0000-0001-9683-4509" target="_blank" class="link-orcid" title="ORCID"><i class="ai ai-orcid"></i></a>
+                        <a href="https://www.iitkgp.ac.in/department/MM/faculty/mm-debashree_smst" target="_blank" class="link-web" title="IIT KGP Profile"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="pi-info">
+                    <h3>Dr. Debashree Guha Adhya</h3>
+                    <p class="pi-title">Associate Professor</p>
+                    <p class="pi-affiliation">School of Medical Science and Technology, IIT Kharagpur</p>
+                    <div class="pi-education-wrap">
+                        <ul class="pi-education">
+                            <li>Ph.D. in Mathematics, IIT Kharagpur</li>
+                            <li>M.Sc. in Applied Mathematics, Jadavpur University</li>
+                            <li>B.Sc. in Mathematics, Jadavpur University</li>
+                        </ul>
+                        <div class="pi-hover-bio">
+                            I actively research in qualitative and quantitative decision making, medical decision making, data aggregation and their applications in medical, fuzzy logic, and uncertainty modelling. I am working on developing tools and techniques for building efficient decision support system for health care development. In particular, I develop novel information fusion strategies by modeling interaction among data, analyze information measures to extract knowledge of uncertain data and use them in modelling physical system, solve medical decision problem when the knowledge is available in the form of fuzzy rules, design web-based medical diagnostic support system. I also analyzed the pattern of hierarchical data.
+                        </div>
+                    </div>
+                    <span class="pi-badge"><i class="fas fa-award" style="margin-right:4px;"></i>Senior IEEE Member</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PhD Scholars -->
         <section>
             <h2 class="section-title">PhD Scholars</h2>
             <div class="collaborators-grid">
@@ -627,8 +877,9 @@
             </div>
         </section>
 
+        <!-- Alumni PhD -->
         <section style="border-bottom: none;">
-            <h2 class="section-title">Alumni</h2>
+            <h2 class="section-title">Alumni PhD</h2>
             <div class="collaborators-grid">
                 <div class="collaborator-container">
                     <a href="https://gowthamgit04.github.io/Gowtham12/" target="_blank" style="text-decoration:none; color:inherit;">
@@ -935,7 +1186,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Debashree Guha</p>
+            <p>&copy; 2026 Predictive Mathematical Modelling Lab (PMML), IIT Kharagpur</p>
         </div>
     </footer>
 
